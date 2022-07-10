@@ -23,9 +23,13 @@ type result struct {
 func main() {
 	file, timer := parseFlags()
 	quiz := readCsv(file)
-	fmt.Println(quiz)
-	launchQuiz(quiz, timer)
+	result := launchQuiz(quiz, timer)
+	showresult(result)
+}
 
+func showresult(r result) {
+	fmt.Println("Total questions:", r.questions)
+	fmt.Println("Correct answers:", r.correct)
 }
 
 func launchQuiz(quiz []pair, timer int) result {
